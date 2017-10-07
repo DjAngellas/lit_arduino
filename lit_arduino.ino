@@ -5,8 +5,8 @@
 
 #define NUM_LEDS 60
 
-const char* ssid     = "jank";
-const char* password = "applesauce";
+const char* ssid     = "OMITTED";
+const char* password = "OMITTED";
 const unsigned int port = 9000;
 WiFiUDP socket;
 char packetBuffer[NUM_LEDS*3];
