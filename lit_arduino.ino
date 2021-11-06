@@ -7,8 +7,8 @@
 #define NUM_LEDS 90
 #define PACKET_SIZE (NUM_LEDS * 3 + TIMESTAMP_SIZE)
 
-const char* ssid     = "Apt B";
-const char* password = "abcdefgh";
+const char* ssid     = "OMITTED";
+const char* password = "OMITTED";
 const unsigned int port = 9000;
 WiFiUDP socket;
 char packetBuffer[PACKET_SIZE];
