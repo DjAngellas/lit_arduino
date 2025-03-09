@@ -9,11 +9,12 @@
 
 const char* ssid     = "OMITTED";
 const char* password = "OMITTED";
+const char* hostname = "OMITTED";
 const unsigned int port = 9000;
 WiFiUDP socket;
 char packetBuffer[PACKET_SIZE];
 uint64_t latestTimestamp = 0;
-NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> neopixels(NUM_LEDS);
+NeoPixelBus<NeoGrbFeature, NeoEsp8266DmaWs2812xMethod> neopixels(NUM_LEDS);
 
 void setup() {
   Serial.begin(115200);
@@ -39,6 +40,7 @@ void connectToWifi()
   Serial.println(ssid);
 
   WiFi.disconnect();
+  WiFi.hostname(hostname);
   WiFi.begin(ssid, password);
 
   while (WiFi.status() == WL_DISCONNECTED) {
