@@ -14,7 +14,10 @@ const unsigned int port = 9000;
 WiFiUDP socket;
 char packetBuffer[PACKET_SIZE];
 uint64_t latestTimestamp = 0;
-NeoPixelBus<NeoGrbFeature, NeoEsp8266DmaWs2812xMethod> neopixels(NUM_LEDS);
+//Uncomment NeoEsp8266DmaWs2812xMethod to use ESP01/01-S GPIO0
+//NeoPixelBus<NeoGrbFeature, NeoEsp8266DmaWs2812xMethod> neopixels(NUM_LEDS);
+//Uncomment NeoEsp8266Uart1Ws2812xMethod to use ESP01/01-S GPIO2
+NeoPixelBus<NeoGrbFeature, NeoEsp8266Uart1Ws2812xMethod> neopixels(NUM_LEDS);
 
 void setup() {
   Serial.begin(115200);
