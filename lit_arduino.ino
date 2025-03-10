@@ -14,9 +14,10 @@ const unsigned int port = 9000;
 WiFiUDP socket;
 char packetBuffer[PACKET_SIZE];
 uint64_t latestTimestamp = 0;
-//Uncomment NeoEsp8266DmaWs2812xMethod to use ESP01/01-S GPIO0
+
+//****Uncomment NeoEsp8266DmaWs2812xMethod to use ESP01/01-S GPIO0****
 //NeoPixelBus<NeoGrbFeature, NeoEsp8266DmaWs2812xMethod> neopixels(NUM_LEDS);
-//Uncomment NeoEsp8266Uart1Ws2812xMethod to use ESP01/01-S GPIO2
+//****Uncomment NeoEsp8266Uart1Ws2812xMethod to use ESP01/01-S GPIO2****
 NeoPixelBus<NeoGrbFeature, NeoEsp8266Uart1Ws2812xMethod> neopixels(NUM_LEDS);
 
 void setup() {
@@ -49,7 +50,6 @@ void connectToWifi()
   while (WiFi.status() == WL_DISCONNECTED) {
     delay(500);
     Serial.print(".");
-    //Serial.printf("%d", WiFi.status());
   }
   Serial.println("");
   Serial.println("IP address: ");
@@ -58,7 +58,6 @@ void connectToWifi()
 
 uint64_t extractTimestamp(char* packetBuffer, int len) {
   char* timeArr = packetBuffer + len - 8;
-  // Serial.printf("%d %d %d %d %d %d %d\n", timeArr[0], timeArr[1], timeArr[2], timeArr[3], timeArr[4], timeArr[5], timeArr[6],timeArr[7]); 
   return timeArr[0] + (timeArr[1]<<8) + (timeArr[2]<<16) + (timeArr[3]<<24) + (timeArr[4]<<32) + (timeArr[5]<<40) + (timeArr[6]<<48) + (timeArr[7]<<56);
 }
 
