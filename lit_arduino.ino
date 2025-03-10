@@ -15,7 +15,7 @@ WiFiUDP socket;
 char packetBuffer[PACKET_SIZE];
 uint64_t latestTimestamp = 0;
 
-//****Uncomment NeoEsp8266DmaWs2812xMethod to use ESP01/01-S GPIO0****
+//****Uncomment NeoEsp8266DmaWs2812xMethod to use ESP01/01-S GPIO3 / RX ****
 //NeoPixelBus<NeoGrbFeature, NeoEsp8266DmaWs2812xMethod> neopixels(NUM_LEDS);
 //****Uncomment NeoEsp8266Uart1Ws2812xMethod to use ESP01/01-S GPIO2****
 NeoPixelBus<NeoGrbFeature, NeoEsp8266Uart1Ws2812xMethod> neopixels(NUM_LEDS);
